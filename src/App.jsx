@@ -1,14 +1,14 @@
-import { useState } from 'react'
 import './App.css'
 import PedidoCompra from './pages/PedidoCompra'
+import Header from './components/header/Header'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
+    <main>
+      <Header/>
       <PedidoCompra/>
-    </>
+    </main>
   )
 }
 
