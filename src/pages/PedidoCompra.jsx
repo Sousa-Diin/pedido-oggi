@@ -62,14 +62,14 @@ const PedidoCompra = () => {
   };
 
   return (
-    <div className="flex flex-col p-1 w-93 md:w-dvw h-dvh ">
-      <div className="mt-12"></div>
-      <h2 className="text-center">Balanço - Estoque</h2>
+     <div className="flex flex-col p-1 w-93 md:w-dvw md:h-dvh lg:h-auto">
+      <div className="md:mt-12 lg:mt-20"/>
+       <h2 className="text-center">Balanço - Estoque</h2>
       <div className="flex-col md:gap-2.5">
         <h2 className="text-[#e52c66] font-bold">Carregar Produtos via Excel</h2>
         <ExcelUploader onUpload={handleUpload} />
       </div>
-      <table className=" flex mb-2 flex-col gap-3 p-1 h-96 md:h-56 overflow-y-auto ">
+      <table className=" flex mb-2 flex-col gap-3 p-1 h-dvh md:h-56 overflow-y-auto ">
         <thead className=" md:w-dvh flex justify-between">
           <tr className="flex flex-row p-1" >
             <th className="md:w-96 w-32 flex">Linha</th>
@@ -98,9 +98,8 @@ const PedidoCompra = () => {
       <footer className="flex flex-col gap-0.5 w-full items-center justify-around">
       <Button onClick={gerarRelatorio} title={'Gerar Relatório'} />
       <span>© Wildes Sousa</span>
-      </footer>
-      
-    </div>
+      </footer>       
+      </div>
   );
 };
 

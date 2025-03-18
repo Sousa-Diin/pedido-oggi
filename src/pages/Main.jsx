@@ -53,13 +53,13 @@ const Main = () =>{
   };
   
   return(
-    <main className="w-dvw h-dvh gap-2 flex-col items-center bg-[#eae8e1]">
+    <main className="w-dvw h-dvh lg:h-96 gap-2 flex-col items-center bg-[#eae8e1]">
       <Header/>
       <Title title={'Balanço - Estoque'}/>
       <Insertion handleUpload={handleUpload}/>
       <PedidoCompra produtos={produtos} setProdutos={setProdutos}/>
       <Button onClick={gerarRelatorio} title={'Gerar Relatório'} />
-      <span>Wildes Sousa</span>
+      <span className="bottom-0">Wildes Sousa</span>
     </main>
   );
 }
