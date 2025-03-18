@@ -23,7 +23,7 @@ const ExcelUploader = ({ onUpload }) => {
 
   return (
     <div>
-      <input className="bg-[#fff]" type="file" accept=".xlsx, .xls" onChange={handleFileUpload} />
+      <input className="w-32 cursor-pointer rounded-md p-1 bg-[#fff]" type="file" accept=".xlsx, .xls" onChange={handleFileUpload} />
       {fileName && <p>Arquivo carregado: {fileName}</p>}
     </div>
   );

@@ -62,18 +62,18 @@ const PedidoCompra = () => {
   };
 
   return (
-    <div className="flex flex-col p-1 w-dvw ">
+    <div className="flex flex-col p-1 w-93 md:w-dvw h-dvh ">
       <div className="mt-12"></div>
       <h2 className="text-center">Balanço - Estoque</h2>
-      <div className="flex gap-2.5">
+      <div className="flex-col md:gap-2.5">
         <h2 className="text-[#e52c66] font-bold">Carregar Produtos via Excel</h2>
         <ExcelUploader onUpload={handleUpload} />
       </div>
-      <table className=" flex mb-2 flex-col gap-3 h-61 overflow-y-auto ">
-        <thead className="p-1 w-full flex justify-between">
-          <tr className="flex flex-row" >
-            <th className="w-96 flex">Linha</th>
-            <th className="w-96 flex">Sabor</th>
+      <table className=" flex mb-2 flex-col gap-3 p-1 h-96 md:h-56 overflow-y-auto ">
+        <thead className=" md:w-dvh flex justify-between">
+          <tr className="flex flex-row p-1" >
+            <th className="md:w-96 w-32 flex">Linha</th>
+            <th className="md:w-96 w-31 flex">Sabor</th>
             <th className="flex">Quantidade</th>
           </tr>
         </thead>
@@ -96,7 +96,7 @@ const PedidoCompra = () => {
         </tbody>
       </table>
       <footer className="flex flex-col gap-0.5 w-full items-center justify-around">
-      <Button onClick={gerarRelatorio} title={'Gerar Relatório'} color={'#37a2c2'}/>
+      <Button onClick={gerarRelatorio} title={'Gerar Relatório'} />
       <span>© Wildes Sousa</span>
       </footer>
       

@@ -1,7 +1,7 @@
-const Button = ({ title, onClick, color }) => {
+const Button = ({ title, onClick }) => {
   return (
     <button 
-      className={`w-80  bg-[${color}] p-1 text-white rounded-md`}
+      className='w-80  bg-[#37a2c2] p-1 text-white rounded-md'
       onClick={onClick}
     >
       {title}
