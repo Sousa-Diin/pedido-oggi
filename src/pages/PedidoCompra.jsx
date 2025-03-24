@@ -4,11 +4,11 @@ import saveAs from "file-saver";
 import * as XLSX from "xlsx";
 import Button from "../components/button/Button";
 
-const PedidoCompra = () => {
+const PedidoCompra = ({produtos, setProdutos}) => {
   let date = new Date();
   
   //alert(`Relatorio_Pedidos_${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}.xlsx`);
-  const [produtos, setProdutos] = useState([]);
+ /*  const [produtos, setProdutos] = useState([]); */
 
   const handleUpload = (data) => {
     console.log("Dados importados do Excel:", data); // DEBUG
@@ -43,7 +43,7 @@ const PedidoCompra = () => {
       pedido: Math.abs(Math.ceil(produto.quantidade - produto.Maximo)),
     }))
   };
-
+/* 
   const gerarRelatorio = () => {
     const pedidos = calcularPedido();
     const dados = pedidos.map(({ codigo, linha, sabor, volume, pedido }) => ({
@@ -59,29 +59,24 @@ const PedidoCompra = () => {
     const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
     const blob = new Blob([excelBuffer], { type: "application/octet-stream" });
     saveAs(blob, `Relatorio_Pedidos_${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}.xlsx`);
-  };
+  }; */
 
   return (
-     <div className="flex flex-col p-1 w-93 md:w-dvw md:h-dvh lg:w-dvw lg:h-full">
-      <div className="md:mt-12 lg:mt-20"/>
-       <h2 className="text-center">Balanço - Estoque</h2>
-      <div className="flex-col md:gap-2.5">
-        <h2 className="text-[#e52c66] font-bold">Carregar Produtos via Excel</h2>
-        <ExcelUploader onUpload={handleUpload} />
-      </div>
-      <table className=" flex mb-2 flex-col gap-3 lg:w-dvw p-1 h-96 overflow-y-auto ">
-        <thead className=" md:w-dvh flex justify-between">
-          <tr className="flex flex-row p-1" >
-            <th className="md:w-96 w-32 flex">Linha</th>
-            <th className="md:w-96 w-31 flex">Sabor</th>
-            <th className="flex">Quantidade</th>
+     <div className="w-dvw h-105  overflow-y-auto">
+      
+      <table className=" flex flex-col p-1 h-105">
+        <thead >
+          <tr className="flex justify-between p-2 " >
+            <th className="">Linha</th>
+            <th className="">Sabor</th>
+            <th className="">Quantidade</th>
           </tr>
         </thead>
         <tbody className="flex flex-col gap-1">
           {produtos.map((produto, index) => (
-            <tr key={produto.codigo || index}>
-              <td className="w-96" >{produto.linha}</td>
-              <td className="w-96">{produto.sabor}</td>
+            <tr key={produto.codigo || index} className="flex justify-between p-1">
+              <td className="" >{produto.linha}</td>
+              <td className="">{produto.sabor}</td>
               <td className="">
                 <input className="w-20 bg-[#fff] p-1 text-center text-[#e59e07] rounded-md"
                   type="number"
@@ -94,11 +89,7 @@ const PedidoCompra = () => {
             </tr>
           ))}
         </tbody>
-      </table>
-      <footer className="flex flex-col gap-0.5 w-full items-center justify-around">
-      <Button onClick={gerarRelatorio} title={'Gerar Relatório'} />
-      <span>© Wildes Sousa</span>
-      </footer>       
+      </table>      
       </div>
   );
 };

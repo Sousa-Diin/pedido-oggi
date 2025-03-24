@@ -6,9 +6,9 @@ import Main from './pages/Main'
 function App() {
 
   return (
-    <main>
+    <main className=''>
       <Header/>
-      <PedidoCompra/>
+      <Main/>
     </main>
     
   )
