@@ -61,7 +61,7 @@ const Main = () =>{
       
       <footer className="flex flex-col items-center justify-around">
         <Button onClick={gerarRelatorio} title={'Gerar Relatório'} />
-        <span>© Wildes Sousa</span>
+        <pre className="">Desenvolvido por © Wildes Sousa</pre>
       </footer> 
     </main>
   );
