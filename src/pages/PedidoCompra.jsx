@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const PedidoCompra = ({produtos, setProdutos}) => {
 
@@ -10,7 +10,7 @@ const PedidoCompra = ({produtos, setProdutos}) => {
   produtos = localStorage.getItem("Pedido") ? JSON.parse(localStorage.getItem("Pedido")) : produtos;
   const handleChange = (index, value) => {
     const novosProdutos = [...produtos];
-    novosProdutos[index].quantidade = value >= 0 && value <= novosProdutos[index].Maximo ? value : 
+    novosProdutos[index].quantidade = value >= 0 && value <= novosProdutos[index].Maximo +(novosProdutos[index].Maximo / 2) ? value : 
       myAlert("🚨Atenção : \n\nQuantidade inferior ou superior ao permitido.");
     setProdutos(novosProdutos);
     
@@ -31,16 +31,18 @@ const PedidoCompra = ({produtos, setProdutos}) => {
         </thead>
         <tbody className="flex flex-col gap-1">
           {produtos.map((produto, index) => (
-            <tr key={produto.codigo || index} className="flex justify-between p-1">
-              <td className="" >{produto.linha}</td>
-              <td className="">{produto.sabor}</td>
+            <tr key={produto.codigo || index} className="bg-[rgb(150,53,132,.5)] hover:bg-[#963584] text-[#eae8e1] font-bold flex justify-between p-1">
+              <td className="w-30" >{produto.linha}</td>
+              <td className="w-60 flex justify-start">{produto.sabor}</td>
               <td className="">
                 <input className="w-20 bg-[#fff] p-1 text-center text-[#e59e07] rounded-md"
                   type="number"
                   value={produto.quantidade}
                   onChange={(e) => handleChange(index, e.target.value)}
                   min={0}
-                  max={produto.Maximo}
+                  //max={(produto.Maximo +(produto.Maximo / 2))}// possibilita uma quantidade maior que o máximo
+                  required
+                  autoFocus="true"
                 />
               </td>
             </tr>

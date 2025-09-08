@@ -91,7 +91,7 @@ const Main = () => {
 
       <footer className="flex flex-col items-center justify-between p-4">
         <Button onClick={gerarRelatorio} title="Gerar Relatório" />
-        <pre style={{ fontSize: ".7rem" }}>Desenvolvido por © Wildes Sousa</pre>
+        <pre style={{ fontSize: ".7rem" }}>Desenvolvido por © Soluttec</pre>
       </footer>
     </main>
   );
